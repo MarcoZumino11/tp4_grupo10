@@ -7,7 +7,6 @@ public class Producto {
     private double precio;
     private LocalDate fechaVencimiento;
 
-    // Constructor
     public Producto(String descripcion, double precio, LocalDate fechaVencimiento) {
         this.descripcion = descripcion;
         this.precio = precio;

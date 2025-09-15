@@ -9,28 +9,34 @@ import java.util.TreeMap;
 public class Ejercicio5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        TreeMap<Integer, Producto> productos = new TreeMap<>();
+        TreeMap<Integer, Producto> productos = new TreeMap<>(); 
+        // TreeMap para guardar productos con clave numérica ordenada
         int opcion;
 
+        // Menú principal 
+        // Repite hasta que se elija la opción 5 (salir)
         do {
             System.out.println("\n--- MENÚ PRODUCTOS ---");
-            System.out.println("1 – Alta de producto");
-            System.out.println("2 – Mostrar productos");
-            System.out.println("3 – Buscar un producto");
-            System.out.println("4 – Eliminar un producto");
-            System.out.println("5 – Salir");
+            System.out.println("1 Alta de producto");
+            System.out.println("2 Mostrar productos");
+            System.out.println("3 Buscar un producto");
+            System.out.println("4 Eliminar un producto");
+            System.out.println("5 Salir");
             System.out.print("Elija una opción: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // limpiar buffer
+            scanner.nextLine(); 
 
+            // Opciones del menú 
             switch (opcion) {
                 case 1:
+                    // Alta de producto: pide clave, descripción, precio y fecha
                     System.out.print("Ingrese clave numérica (entero): ");
                     int clave = scanner.nextInt();
                     scanner.nextLine();
 
+                    // Validar que la clave no esté duplicada
                     if (productos.containsKey(clave)) {
-                        System.out.println("❌ La clave ya existe. No se puede duplicar.");
+                        System.out.println("La clave ya existe. No se puede duplicar.");
                         break;
                     }
 
@@ -45,10 +51,11 @@ public class Ejercicio5 {
 
                     Producto nuevo = new Producto(descripcion, precio, fechaVenc);
                     productos.put(clave, nuevo);
-                    System.out.println("✅ Producto agregado con éxito.");
+                    System.out.println("Producto agregado con éxito.");
                     break;
 
                 case 2:
+                    // Mostrar todos los productos recorriendo el TreeMap
                     System.out.println("Lista de productos:");
                     Iterator<Map.Entry<Integer, Producto>> it = productos.entrySet().iterator();
                     while (it.hasNext()) {
@@ -58,6 +65,7 @@ public class Ejercicio5 {
                     break;
 
                 case 3:
+                    // Buscar un producto por su clave
                     System.out.print("Ingrese clave a buscar: ");
                     int claveBuscar = scanner.nextInt();
                     scanner.nextLine();
@@ -65,33 +73,36 @@ public class Ejercicio5 {
                     if (productos.containsKey(claveBuscar)) {
                         System.out.println("Producto encontrado: " + productos.get(claveBuscar));
                     } else {
-                        System.out.println("❌ No se encontró producto con esa clave.");
+                        System.out.println("No se encontró producto con esa clave.");
                     }
                     break;
 
                 case 4:
+                    // Eliminar un producto por clave
                     System.out.print("Ingrese clave de producto a eliminar: ");
                     int claveEliminar = scanner.nextInt();
                     scanner.nextLine();
 
                     if (productos.containsKey(claveEliminar)) {
                         productos.remove(claveEliminar);
-                        System.out.println("✅ Producto eliminado.");
+                        System.out.println("Producto eliminado.");
                     } else {
-                        System.out.println("❌ No se encontró producto con esa clave.");
+                        System.out.println("No se encontró producto con esa clave.");
                     }
                     break;
 
                 case 5:
+                    // Salir del programa
                     System.out.println("Saliendo del programa...");
                     break;
 
                 default:
+                    // Si se ingresa una opción inválida
                     System.out.println("Opción inválida.");
             }
 
         } while (opcion != 5);
 
-        scanner.close();
+        scanner.close(); // cerrar el scanner al final
     }
 }

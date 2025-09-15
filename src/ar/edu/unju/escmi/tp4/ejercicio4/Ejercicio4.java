@@ -8,9 +8,11 @@ import java.util.stream.Collectors;
 public class Ejercicio4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Set<Cliente> clientes = new HashSet<>();
+        Set<Cliente> clientes = new HashSet<>(); // colección donde se guardan los clientes
         int opcion;
 
+        // Menú principal 
+        // Se repite hasta que el usuario elija salir (opción 6).
         do {
             System.out.println("\nMENÚ CLIENTES");
             System.out.println("1  Crear cliente");
@@ -23,8 +25,10 @@ public class Ejercicio4 {
             opcion = scanner.nextInt();
             scanner.nextLine();
 
+            // Opciones del menú 
             switch (opcion) {
                 case 1:
+                    // Crear cliente nuevo y agregarlo al HashSet
                     System.out.print("Ingrese DNI: ");
                     String dni = scanner.nextLine();
                     System.out.print("Ingrese nombre: ");
@@ -41,6 +45,7 @@ public class Ejercicio4 {
                     break;
 
                 case 2:
+                    // Buscar cliente por DNI y mostrar sus datos
                     System.out.print("Ingrese DNI a buscar: ");
                     String dniBuscar = scanner.nextLine();
                     clientes.stream()
@@ -49,11 +54,13 @@ public class Ejercicio4 {
                     break;
 
                 case 3:
+                    // Mostrar todos los clientes
                     System.out.println("Listado de todos los clientes:");
                     clientes.forEach(System.out::println);
                     break;
 
                 case 4:
+                    // Mostrar clientes ocasionales y contarlos
                     var ocasionales = clientes.stream()
                             .filter(c -> c.getTipoCliente().equalsIgnoreCase("ocasional"))
                             .collect(Collectors.toList());
@@ -62,6 +69,7 @@ public class Ejercicio4 {
                     break;
 
                 case 5:
+                    // Mostrar clientes frecuentes y contarlos
                     var frecuentes = clientes.stream()
                             .filter(c -> c.getTipoCliente().equalsIgnoreCase("frecuente"))
                             .collect(Collectors.toList());
@@ -70,14 +78,16 @@ public class Ejercicio4 {
                     break;
 
                 case 6:
+                    // Salida del programa
                     System.out.println("Saliendo del programa...");
                     break;
 
                 default:
+                    // Opción incorrecta
                     System.out.println("Opción inválida.");
             }
         } while (opcion != 6);
 
-        scanner.close();
+        scanner.close(); // cerrar el scanner al final
     }
 }
