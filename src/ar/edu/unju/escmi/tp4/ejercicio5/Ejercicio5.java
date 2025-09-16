@@ -16,7 +16,7 @@ public class Ejercicio5 {
         // Menú principal 
         // Repite hasta que se elija la opción 5 (salir)
         do {
-            System.out.println("\n--- MENÚ PRODUCTOS ---");
+            System.out.println("\n MENÚ PRODUCTOS ");
             System.out.println("1 Alta de producto");
             System.out.println("2 Mostrar productos");
             System.out.println("3 Buscar un producto");
