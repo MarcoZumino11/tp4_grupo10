@@ -2,18 +2,15 @@ package ar.edu.unju.escmi.tp4.Ejercicio1;
 
 public class Jugador {
 
-    // ===========================
     // Atributos de la clase
-    // ===========================
+
     private String dni;
     private String nombre;
     private String equipo;
     private String nacionalidad;
     private double estatura;
 
-    // ===========================
     // Constructores
-    // ===========================
 
     // Constructor por defecto (vacío)
     // Se usa cuando creamos un objeto sin pasar parámetros
@@ -30,9 +27,7 @@ public class Jugador {
         this.estatura = estatura;
     }
 
-    // ===========================
     // Métodos Getters y Setters
-    // ===========================
 
     // El método getDni() devuelve el valor del atributo dni
     public String getDni() { 
@@ -71,9 +66,8 @@ public class Jugador {
         this.estatura = estatura; 
     }
 
-    // ===========================
     // Método para mostrar datos
-    // ===========================
+
     public void mostrarDatos() {
         System.out.println("DNI: " + dni);
         System.out.println("Nombre: " + nombre);
